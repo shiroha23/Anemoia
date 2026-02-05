@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "enderio:vibrant_capacitor_bank"
+    },
+    {
+      "item": "enderio:frank_n_zombie"
+    },
+    {
+      "item": "enderio:sentient_ender"
+    },
+    {
+      "item": "enderio:weather_crystal"
+    }
+  ],
+  "result": {
+    "item": "anemoia:weather_core"
+  }
+}
+

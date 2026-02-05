@@ -1,0 +1,15 @@
+{
+  "item.anemoia.crazy_gear": "Crazy Gear",
+  "tooltip.anemoia.crazy_gear": "\u00A77Right-click while holding to adjust game difficulty",
+  "message.anemoia.difficulty_changed": "Game difficulty changed to: %s",
+  "item.anemoia.weather_core": "Weather Core",
+  "tooltip.anemoia.weather_core": "\u00A77Right-click while holding to adjust weather",
+  "message.anemoia.weather_changed": "Weather changed to: %s",
+  "message.anemoia.weather.clear": "Clear",
+  "message.anemoia.weather.rain": "Rain",
+  "message.anemoia.weather.thunder": "Thunder",
+  "item.anemoia.universal_press": "Universal Press",
+  "item.anemoia.black_soul": "Black Soul",
+  "itemGroup.anemoia": "Anemoia"
+}
+

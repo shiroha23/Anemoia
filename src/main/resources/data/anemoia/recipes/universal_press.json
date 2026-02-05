@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "a": {
+      "item": "ae2:fluix_pearl"
+    },
+    "b": {
+      "item": "ae2:silicon_press"
+    },
+    "c": {
+      "item": "ae2:calculation_processor_press"
+    },
+    "d": {
+      "item": "ae2:singularity"
+    },
+    "e": {
+      "item": "ae2:engineering_processor_press"
+    },
+    "f": {
+      "item": "ae2:logic_processor_press"
+    }
+  },
+  "pattern": [
+    "aba",
+    "cde",
+    "afa"
+  ],
+  "result": {
+    "count": 1,
+    "item": "anemoia:universal_press"
+  }
+}

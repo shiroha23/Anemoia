@@ -1,0 +1,15 @@
+{
+  "item.anemoia.crazy_gear": "疯狂的齿轮",
+  "tooltip.anemoia.crazy_gear": "\u00A77手持右键调整游戏难度",
+  "message.anemoia.difficulty_changed": "游戏难度已切换为: %s",
+  "item.anemoia.weather_core": "天气核心",
+  "tooltip.anemoia.weather_core": "\u00A77手持右键调整天气",
+  "message.anemoia.weather_changed": "天气已切换为: %s",
+  "message.anemoia.weather.clear": "晴天",
+  "message.anemoia.weather.rain": "雨天",
+  "message.anemoia.weather.thunder": "雷暴",
+  "item.anemoia.universal_press": "通用压印模板",
+  "item.anemoia.black_soul": "黑之魂",
+  "itemGroup.anemoia": "Anemoia"
+}
+

@@ -10,6 +10,10 @@
   "message.anemoia.weather.thunder": "雷暴",
   "item.anemoia.universal_press": "通用压印模板",
   "item.anemoia.black_soul": "黑之魂",
+  "item.anemoia.meowmere": "彩虹猫之刃",
+  "entity.anemoia.cat_projectile": "彩虹猫猫",
+  "message.anemoia.meowmere_sound_enabled": "彩虹猫之刃音效：开",
+  "message.anemoia.meowmere_sound_disabled": "彩虹猫之刃音效：关",
   "itemGroup.anemoia": "Anemoia"
 }
 

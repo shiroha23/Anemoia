@@ -1,9 +1,16 @@
 package com.shiroha23.anemoia;
 
 import com.mojang.logging.LogUtils;
+import com.shiroha23.anemoia.meowmere.MeowmereContent;
+import com.shiroha23.anemoia.meowmere.entity.CatProjectile;
+import com.shiroha23.anemoia.meowmere.item.MeowmereSword;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.particles.ParticleType;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -36,6 +43,12 @@ public class Anemoia {
     
     // Create a Deferred Register to hold Items which will all be registered under the "anemoia" namespace
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+
+    // Create a Deferred Register to hold Entities which will all be registered under the "anemoia" namespace
+    public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, MODID);
+
+    // Create a Deferred Register to hold Particle Types which will all be registered under the "anemoia" namespace
+    public static final DeferredRegister<ParticleType<?>> PARTICLE_TYPES = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, MODID);
     
     // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "anemoia" namespace
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
@@ -55,6 +68,23 @@ public class Anemoia {
     // Register the Black Soul item
     public static final RegistryObject<Item> BLACK_SOUL = ITEMS.register("black_soul", 
         () -> new BlackSoulItem(new Item.Properties().stacksTo(64)));
+
+    // Register the Meowmere items
+    public static final RegistryObject<Item> MEOWMERE = ITEMS.register("meowmere",
+        () -> new MeowmereSword(MeowmereContent.MEOWMERE_TIER));
+
+
+    // Register the Meowmere entity
+    public static final RegistryObject<EntityType<CatProjectile>> CAT_PROJECTILE = ENTITIES.register("cat_projectile",
+        () -> EntityType.Builder.<CatProjectile>of((type, level) -> new CatProjectile(type, level), MobCategory.MISC)
+            .sized(0.5f, 0.5f)
+            .clientTrackingRange(32)
+            .fireImmune()
+            .build("cat_projectile"));
+
+    // Register the Meowmere particle types
+    public static final RegistryObject<SimpleParticleType> RAINBOW = PARTICLE_TYPES.register("rainbow", () -> new SimpleParticleType(false));
+    public static final RegistryObject<SimpleParticleType> PLAYER_RAINBOW = PARTICLE_TYPES.register("player_rainbow", () -> new SimpleParticleType(false));
     
     // Register the Creative Mode Tab
     public static final RegistryObject<CreativeModeTab> ANEMOIA_TAB = CREATIVE_MODE_TABS.register("anemoia_tab", 
@@ -66,6 +96,7 @@ public class Anemoia {
                 output.accept(WEATHER_CORE.get());
                 output.accept(UNIVERSAL_PRESS.get());
                 output.accept(BLACK_SOUL.get());
+                output.accept(MEOWMERE.get());
             })
             .build());
 
@@ -77,6 +108,12 @@ public class Anemoia {
 
         // Register the Deferred Register to the mod event bus so items get registered
         ITEMS.register(modEventBus);
+
+        // Register the Deferred Register to the mod event bus so entities get registered
+        ENTITIES.register(modEventBus);
+
+        // Register the Deferred Register to the mod event bus so particle types get registered
+        PARTICLE_TYPES.register(modEventBus);
         
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
@@ -91,6 +128,7 @@ public class Anemoia {
     private void commonSetup(final FMLCommonSetupEvent event) {
         // Some common setup code
         LOGGER.info("HELLO FROM COMMON SETUP");
+        AnemoiaNetwork.register();
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

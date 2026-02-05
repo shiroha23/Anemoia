@@ -10,6 +10,7 @@ public class AnemoiaConfig {
     public static final ForgeConfigSpec.BooleanValue ENABLE_WEATHER_CORE_WEATHER;
     public static final ForgeConfigSpec.BooleanValue ENABLE_BLACK_SOUL_RESPAWN_GRANT;
     public static final ForgeConfigSpec.DoubleValue BLACK_SOUL_MAX_HEALTH_BONUS;
+    public static final ForgeConfigSpec.BooleanValue ENABLE_MEOWMERE_SOUND;
 
     static {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
@@ -27,6 +28,9 @@ public class AnemoiaConfig {
         BLACK_SOUL_MAX_HEALTH_BONUS = builder
             .comment("Black Soul max health bonus (0 = disabled)")
             .defineInRange("blackSoulMaxHealthBonus", 20.0D, 0.0D, 1024.0D);
+        ENABLE_MEOWMERE_SOUND = builder
+            .comment("Whether Meowmere plays cat sounds")
+            .define("enableMeowmereSound", true);
         builder.pop();
 
         SPEC = builder.build();

@@ -5,6 +5,7 @@ import com.shiroha23.anemoia.meowmere.MeowmereContent;
 import com.shiroha23.anemoia.meowmere.entity.CatProjectile;
 import com.shiroha23.anemoia.meowmere.item.MeowmereSword;
 import com.shiroha23.anemoia.effect.PhaseEffect;
+import me.ramidzkh.mekae2.AMItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
@@ -41,6 +42,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
+import appeng.items.storage.StorageTier;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Anemoia.MODID)
@@ -85,6 +87,11 @@ public class Anemoia {
     public static final RegistryObject<Item> BLACK_SOUL = ITEMS.register("black_soul", 
         () -> new BlackSoulItem(new Item.Properties().stacksTo(64)));
 
+    public static final RegistryObject<Item> RADIOACTIVE_CHEMICAL_STORAGE_CELL = ITEMS.register(
+        "radioactive_chemical_storage_cell",
+        () -> new RadioactiveChemicalStorageCellItem(new Item.Properties().stacksTo(1), StorageTier.SIZE_1K,
+            AMItems.CHEMICAL_CELL_HOUSING.get()));
+
     // Register the Meowmere items
     public static final RegistryObject<Item> MEOWMERE = ITEMS.register("meowmere",
         () -> new MeowmereSword(MeowmereContent.MEOWMERE_TIER));
@@ -120,6 +127,7 @@ public class Anemoia {
                 output.accept(UNIVERSAL_PRESS.get());
                 output.accept(BLACK_SOUL.get());
                 output.accept(MEOWMERE.get());
+                output.accept(RADIOACTIVE_CHEMICAL_STORAGE_CELL.get());
                 output.accept(PotionUtils.setPotion(new ItemStack(Items.POTION), PHASE_POTION.get()));
                 output.accept(PotionUtils.setPotion(new ItemStack(Items.POTION), LONG_PHASE_POTION.get()));
             })

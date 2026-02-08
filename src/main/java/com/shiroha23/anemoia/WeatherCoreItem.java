@@ -58,6 +58,10 @@ public class WeatherCoreItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack itemStack = player.getItemInHand(hand);
 
+        if (!player.isShiftKeyDown()) {
+            return InteractionResultHolder.pass(itemStack);
+        }
+
         if (!AnemoiaConfig.ENABLE_WEATHER_CORE_WEATHER.get()) {
             return InteractionResultHolder.fail(itemStack);
         }

@@ -31,6 +31,10 @@ public class CrazyGearItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack itemStack = player.getItemInHand(hand);
 
+        if (!player.isShiftKeyDown()) {
+            return InteractionResultHolder.pass(itemStack);
+        }
+
         if (!AnemoiaConfig.ENABLE_CRAZY_GEAR_DIFFICULTY.get()) {
             return InteractionResultHolder.fail(itemStack);
         }
